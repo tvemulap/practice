@@ -22,7 +22,10 @@ function getNumbers(from, to) {
     numbers = createPattern(to);
     output = [];
 
-    if(from >=0 && from < to) {
+    try {
+        if(from < 0) throw "invalid input";
+        if(from >= to) throw "invalid input";
+
         numbers.forEach((number) => {
             if(number >= from && number <= to) {
                 output.push(number);
@@ -32,8 +35,8 @@ function getNumbers(from, to) {
         return output;
     }
 
-    else {
-        return 'invalid input';
+    catch(err) {
+        return err;
     }
 }
 
