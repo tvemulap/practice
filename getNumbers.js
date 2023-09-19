@@ -1,17 +1,18 @@
 function createPattern(to) {
     numbers = [];
     multiple = 1;
-    base = 0;
+    numToAdd = 0;
 
-    while (base <= to) {
+    while (numToAdd <= to) {
         for(let i = 0; i < 6; i++) {
-            numbers.push(base);
+            numbers.push(numToAdd);
+            
             if(i !== 5) {
-                base = base + 1;
+                numToAdd++;
             }
         }
 
-        base = base + 5 * multiple;
+        numToAdd = numToAdd + 5 * multiple;
         multiple++;
     }
 
@@ -24,6 +25,7 @@ function getNumbers(from, to) {
 
     try {
         if(from < 0) throw "invalid input";
+        if(to < 0) throw "invalid input";
         if(from >= to) throw "invalid input";
 
         numbers.forEach((number) => {
