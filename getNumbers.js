@@ -1,42 +1,41 @@
-function aroundTwenty() {
+function createPattern(to) {
     numbers = [];
-    for(let i = 0; i <= 50; i++) {
-        if(i < 31 || i > 40) {
-            if(i <= 19) {
-                for(let j = 0; j < 6; j++) {
-                    numbers.push(i);
-                    i = i+1;
-                }
+    multiple = 1;
+    base = 0;
 
-                i = i + 3;
-            }
-            if(i > 20 && i < 51) {
-                i = i + 4;
-
-                for(let j = 0; j < 6; j++) {
-                    numbers.push(i);
-                    i = i+1;
-                }
+    while (base <= to) {
+        for(let i = 0; i < 6; i++) {
+            numbers.push(base);
+            if(i !== 5) {
+                base = base + 1;
             }
         }
 
+        base = base + 5 * multiple;
+        multiple++;
     }
-    console.log(numbers);
+
     return numbers;
 }
 
 function getNumbers(from, to) {
-    numbers = aroundTwenty();
+    numbers = createPattern(to);
     output = [];
 
-    numbers.forEach((number) => {
-        if(number >= from && number <= to) {
-            output.push(number);
-        }
-    })
+    if(from >=0 && from < to) {
+        numbers.forEach((number) => {
+            if(number >= from && number <= to) {
+                output.push(number);
+            }
+        })
 
-    return output;
+        return output;
+    }
+
+    else {
+        return 'invalid input';
+    }
 }
 
-exports.aroundTwenty = aroundTwenty;
+exports.createPattern = createPattern;
 exports.getNumbers = getNumbers;
