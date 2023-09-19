@@ -1,7 +1,32 @@
+function aroundTwenty() {
+    numbers = [];
+    for(let i = 0; i <= 50; i++) {
+        if(i < 31 || i > 40) {
+            if(i <= 19) {
+                for(let j = 0; j < 6; j++) {
+                    numbers.push(i);
+                    i = i+1;
+                }
+
+                i = i + 3;
+            }
+            if(i > 20 && i < 51) {
+                i = i + 4;
+
+                for(let j = 0; j < 6; j++) {
+                    numbers.push(i);
+                    i = i+1;
+                }
+            }
+        }
+
+    }
+    console.log(numbers);
+    return numbers;
+}
+
 function getNumbers(from, to) {
-    numbers = [0, 1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 
-        25, 26, 27, 28, 29, 30, 45, 46, 47, 48, 49, 50];
-    
+    numbers = aroundTwenty();
     output = [];
 
     numbers.forEach((number) => {
@@ -13,4 +38,5 @@ function getNumbers(from, to) {
     return output;
 }
 
+exports.aroundTwenty = aroundTwenty;
 exports.getNumbers = getNumbers;
