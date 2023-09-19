@@ -38,6 +38,10 @@ describe('Testing the getNumbers function:', () => {
     expect(practice.getNumbers(0, 120)).toEqual([0, 1, 2, 3, 4, 5, 10, 11, 12, 13, 14, 15, 25, 26, 27, 28, 29, 30, 45, 46, 47, 48, 49, 50, 70, 71, 72, 73, 74, 75, 100, 101, 102, 103, 104, 105]);
   });
 
+  test('Input (6, 73) - Should Output 10, 11, 12, 13, 14, 15, 25, 26, 27, 28, 29, 30, 45, 46, 47, 48, 49, 50, 70, 71, 72, 73"', () => {
+    expect(practice.getNumbers(6, 73)).toEqual([10, 11, 12, 13, 14, 15, 25, 26, 27, 28, 29, 30, 45, 46, 47, 48, 49, 50, 70, 71, 72, 73]);
+  });
+
   test('Input (0, 0) - Should Fail and Output "invalid input"', () => {
     expect(practice.getNumbers(0, 0)).toEqual('invalid input');
   });

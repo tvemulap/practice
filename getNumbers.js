@@ -5,10 +5,12 @@ function createPattern(to) {
 
     while (numToAdd <= to) {
         for(let i = 0; i < 6; i++) {
-            numbers.push(numToAdd);
-            
-            if(i !== 5) {
-                numToAdd++;
+            if(numToAdd <= to) {
+                numbers.push(numToAdd);
+
+                if(i !== 5) {
+                    numToAdd++;
+                }
             }
         }
 
