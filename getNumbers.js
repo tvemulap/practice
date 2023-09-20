@@ -1,12 +1,12 @@
-function createPattern(to) {
-    numbers = [];
-    multiple = 1;
+function createPattern(max) {
+    pattern = [];
     numToAdd = 0;
+    multiple = 1;
 
-    while (numToAdd <= to) {
+    while (numToAdd <= max) {
         for(let i = 0; i < 6; i++) {
-            if(numToAdd <= to) {
-                numbers.push(numToAdd);
+            if(numToAdd <= max) {
+                pattern.push(numToAdd);
 
                 if(i !== 5) {
                     numToAdd++;
@@ -14,29 +14,29 @@ function createPattern(to) {
             }
         }
 
-        numToAdd = numToAdd + 5 * multiple;
+        numToAdd = numToAdd + (5 * multiple);
         multiple++;
     }
 
-    return numbers;
+    return pattern;
 }
 
 function getNumbers(from, to) {
-    numbers = createPattern(to);
-    output = [];
+    numbers = [];
+    pattern = createPattern(to);
 
     try {
         if(from < 0) throw "invalid input";
         if(to < 0) throw "invalid input";
         if(from >= to) throw "invalid input";
 
-        numbers.forEach((number) => {
+        pattern.forEach((number) => {
             if(number >= from && number <= to) {
-                output.push(number);
+                numbers.push(number);
             }
-        })
+        });
 
-        return output;
+        return numbers;
     }
 
     catch(err) {
